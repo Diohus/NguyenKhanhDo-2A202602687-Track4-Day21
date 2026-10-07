@@ -1,0 +1,3 @@
+dataset,frame_id,split,kind,level,seed,max_range_m,min_object_points,n_points,n_objects,n_fov,fov_ratio,box_score,pixel_shift_p50,delta_time_ms,threshold
+kitti_mini,000023,evaluation,yaw,3.000000000,21,70.000000000,5,120166,3,18586,0.154669374,0.000000000,43.909499874,,0.857842252
+nuscenes_mini_subset,scene-1094_014,evaluation,yaw,2.000000000,21,70.000000000,5,34581,8,2874,0.083109222,0.811854320,50.858734935,-35.573000000,0.670069661
