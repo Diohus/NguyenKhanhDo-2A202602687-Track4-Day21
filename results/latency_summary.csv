@@ -1,0 +1,5 @@
+dataset,config,repeats,p50_ms,p95_ms,mask_difference,max_pixel_error
+kitti_mini,float32,30,12.633100000,15.298510000,0,0.000143750
+kitti_mini,float64,30,15.464600000,17.587690000,0,0.000000000
+nuscenes_mini_subset,float32,30,2.595200000,3.507455000,0,0.000170126
+nuscenes_mini_subset,float64,30,2.432350000,4.011260000,0,0.000000000
