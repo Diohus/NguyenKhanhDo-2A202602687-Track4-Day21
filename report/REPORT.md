@@ -1,59 +1,31 @@
-# Báo cáo Day 6: [ĐIỀN tên đề tài ngắn]
+# Báo cáo Day 6: Độ nhạy calibration LiDAR-camera
 
-> Thay **mọi** ô có chữ ĐIỀN nằm trong ngoặc vuông bằng nội dung của bạn, xoá luôn cả dấu ngoặc vuông. Lệnh `python tools/check_submission.py` sẽ báo FAIL nếu còn sót bất kỳ chỗ nào.
-
-- **Họ tên:** [ĐIỀN]
-- **MSSV:** [ĐIỀN] (phải trùng với MSSV trong tên repo `<HoVaTen>-<MSSV>-Track4-Day21`)
-- **Lớp:** [ĐIỀN]
-- **Link repo:** [ĐIỀN]
-- **Topic:** [ĐIỀN một chữ cái A/B/C/D/E/F] — [ĐIỀN tên topic]
-- **Dataset:** [ĐIỀN một hoặc nhiều trong: data/synthetic, data/kitti_mini, data/nuscenes_mini_subset, log riêng]
-- **Các frame đã dùng:** [ĐIỀN danh sách frame id, ví dụ 000011, 000049 hoặc scene-0103_010]
-
-> Hãy viết ngắn: mỗi mục từ 3 đến 8 dòng, ưu tiên số liệu và hình ảnh.
+- **Họ tên:** Nguyễn Khánh Đỗ (theo tên repo, đang chờ xác nhận)
+- **MSSV:** 2A202602687
+- **Lớp:** Track 4 (đang chờ tên lớp cụ thể)
+- **Link repo:** https://github.com/Diohus/NguyenKhanhDo-2A202602687-Track4-Day21
+- **Topic:** A — LiDAR-camera projection QA
+- **Dataset:** data/synthetic, data/kitti_mini, data/nuscenes_mini_subset
+- **Các frame đã dùng:** synthetic 000000–000004; toàn bộ 20 frame KITTI và 80 frame nuScenes.
 
 ## 1. Claim
-
-Một câu khẳng định kỹ thuật có thể kiểm chứng. Ví dụ: *"Lệch yaw 1° làm 12% điểm LiDAR rơi ra khỏi vật thể ở 30 m, phát hiện được bằng edge-alignment score với ngưỡng X."*
-
-[ĐIỀN]
+Giả thuyết CP1: yaw 3° làm giảm tỉ lệ điểm thuộc box 3D chiếu đúng vào box 2D so với yaw 0° trên cả hai dataset thật; score box phát hiện được drift nhưng có thể bỏ sót khi vật lớn hoặc ít điểm.
 
 ## 2. Evidence
-
-Bảng hoặc plot số liệu, kèm ảnh/video demo. Ghi rõ đường dẫn file trong `results/`.
-
-| Cấu hình / mức perturb | Metric 1 | Metric 2 | Ghi chú |
-|---|---|---|---|
-| [ĐIỀN] | | | |
-
-![demo](../results/figures/[ĐIỀN].png)
+CP0: hai dataset đã qua verify_data; data_health.csv có đủ 5 frame synthetic.
 
 ## 3. Failure case
-
-Nêu khi nào hệ thống hoặc phương pháp fail, vì sao fail, và liên hệ tới lớp nào trong 6 lớp debug: I/O, Geometry, Time, Preprocess, Model, Metric.
-
-![failure](../results/figures/fail_[ĐIỀN].png)
-
-[ĐIỀN]
+Sẽ chọn từ benchmark chạy thật.
 
 ## 4. Khuyến nghị nếu triển khai thật
-
-Use-case cụ thể (ADAS / robot / drone), trade-off và bước tiếp theo.
-
-[ĐIỀN]
+Use-case: giám sát calibration trong ADAS.
 
 ## 5. Cách chạy lại
-
-Các lệnh tái tạo lại toàn bộ kết quả từ repo sạch.
-
 ```bash
-[ĐIỀN]
+python tools/verify_data.py --data-root data/kitti_mini
+python tools/verify_data.py --data-root data/nuscenes_mini_subset
+python -m starter.data_health --data-root data/synthetic
 ```
 
 ## 6. Khai báo sử dụng AI
-
-Ghi rõ đã dùng công cụ AI nào, dùng vào việc gì, và bạn đã tự kiểm chứng kết quả đó bằng cách nào. Nếu không dùng AI, ghi "Không sử dụng". Xem quy định ở `RULES.md` mục 2.
-
-| Công cụ | Dùng cho việc gì | Bạn đã kiểm chứng thế nào |
-|---|---|---|
-| [ĐIỀN] | | |
+Codex hỗ trợ đọc yêu cầu, cài đặt, thiết kế thí nghiệm và báo cáo; chỉ dùng số liệu chạy thật. Người học cần tự đọc lại và kiểm chứng trước vấn đáp.
